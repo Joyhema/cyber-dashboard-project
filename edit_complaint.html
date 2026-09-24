@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Cybersecurity Complaint</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: white;
+        }
+
+        .container {
+            width: 70%;
+            max-width: 700px;
+            margin: 50px auto;
+        }
+
+        .form-box {
+            background: white;
+            color: #1e293b;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        textarea {
+            height: 130px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #f59e0b;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #d97706;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>✏️ Edit Cybersecurity Complaint</h1>
+
+    <div class="form-box">
+
+        <form method="POST">
+
+            <label>Complaint Title</label>
+            <input
+                type="text"
+                name="title"
+                value="{{ complaint[1] }}"
+                required
+            >
+
+            <label>Description</label>
+            <textarea
+                name="description"
+                required
+            >{{ complaint[2] }}</textarea>
+
+            <label>Complaint Type</label>
+            <select name="complaint_type">
+
+                <option value="Phishing"
+                    {% if complaint[3] == "Phishing" %}selected{% endif %}>
+                    Phishing
+                </option>
+
+                <option value="Fake Website"
+                    {% if complaint[3] == "Fake Website" %}selected{% endif %}>
+                    Fake Website
+                </option>
+
+                <option value="Suspicious Login"
+                    {% if complaint[3] == "Suspicious Login" %}selected{% endif %}>
+                    Suspicious Login
+                </option>
+
+                <option value="Other"
+                    {% if complaint[3] == "Other" %}selected{% endif %}>
+                    Other
+                </option>
+
+            </select>
+
+            <label>Severity</label>
+            <select name="severity">
+
+                <option value="Low"
+                    {% if complaint[4] == "Low" %}selected{% endif %}>
+                    Low
+                </option>
+
+                <option value="Medium"
+                    {% if complaint[4] == "Medium" %}selected{% endif %}>
+                    Medium
+                </option>
+
+                <option value="High"
+                    {% if complaint[4] == "High" %}selected{% endif %}>
+                    High
+                </option>
+
+            </select>
+
+            <label>Status</label>
+            <select name="status">
+
+                <option value="Open"
+                    {% if complaint[5] == "Open" %}selected{% endif %}>
+                    Open
+                </option>
+
+                <option value="Resolved"
+                    {% if complaint[5] == "Resolved" %}selected{% endif %}>
+                    Resolved
+                </option>
+
+            </select>
+
+            <button type="submit">
+                💾 Update Complaint
+            </button>
+
+        </form>
+
+        <a class="back" href="/complaints">
+            ← Back to Complaints
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

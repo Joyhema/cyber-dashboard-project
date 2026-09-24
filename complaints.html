@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cybersecurity Complaints</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: white;
+        }
+
+        .container {
+            width: 85%;
+            margin: 40px auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .add-button {
+            background: #22c55e;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .complaint {
+            background: white;
+            color: #1e293b;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .complaint h2 {
+            color: #1e3a8a;
+            margin-top: 0;
+        }
+
+        .info {
+            margin: 8px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .type {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .severity {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .status {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .actions {
+            margin-top: 20px;
+        }
+
+        .edit {
+            background: #3b82f6;
+            color: white;
+            padding: 9px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-right: 8px;
+        }
+
+        .delete {
+            background: #ef4444;
+            color: white;
+            padding: 9px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .empty {
+            background: white;
+            color: #475569;
+            padding: 30px;
+            text-align: center;
+            border-radius: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🛡️ Cybersecurity Complaints</h1>
+
+        <a class="add-button" href="/complaints/add">
+            + Add Complaint
+        </a>
+    </div>
+
+    {% if complaints %}
+
+        {% for complaint in complaints %}
+
+        <div class="complaint">
+
+            <h2>{{ complaint[1] }}</h2>
+
+            <p>{{ complaint[2] }}</p>
+
+            <div class="info">
+                <span class="badge type">
+                    Type: {{ complaint[3] }}
+                </span>
+
+                <span class="badge severity">
+                    Severity: {{ complaint[4] }}
+                </span>
+
+                <span class="badge status">
+                    Status: {{ complaint[5] }}
+                </span>
+            </div>
+
+            <div class="actions">
+
+                <a class="edit"
+                   href="/complaints/edit/{{ complaint[0] }}">
+                    ✏️ Edit
+                </a>
+
+                <a class="delete"
+                   href="/complaints/delete/{{ complaint[0] }}">
+                    🗑️ Delete
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="empty">
+            <h2>No complaints found</h2>
+            <p>You have not submitted any complaints yet.</p>
+        </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cybersecurity Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: white;
+        }
+
+        .container {
+            width: 85%;
+            margin: 50px auto;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .header h1 {
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .header p {
+            color: #dbeafe;
+        }
+
+        .cards {
+            display: flex;
+            gap: 25px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 220px;
+            padding: 25px;
+            border-radius: 18px;
+            background: white;
+            color: #1e293b;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .view {
+            border-left: 6px solid #3b82f6;
+        }
+
+        .add {
+            border-left: 6px solid #22c55e;
+        }
+
+        .security {
+            border-left: 6px solid #a855f7;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            margin-top: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .blue {
+            background: #3b82f6;
+        }
+
+        .green {
+            background: #22c55e;
+        }
+
+        .button:hover {
+            opacity: 0.85;
+        }
+
+        ul {
+            line-height: 2;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🛡️ Cybersecurity Complaint Management System</h1>
+        <p>Securely report and manage cybersecurity complaints</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card view">
+            <h2>📋 View Complaints</h2>
+            <p>View, edit and delete your cybersecurity complaints.</p>
+
+            <a class="button blue" href="/complaints">
+                View Complaints
+            </a>
+        </div>
+
+        <div class="card add">
+            <h2>🚨 Report Complaint</h2>
+            <p>Report phishing, fake websites and suspicious activities.</p>
+
+            <a class="button green" href="/complaints/add">
+                Add Complaint
+            </a>
+        </div>
+
+        <div class="card security">
+            <h2>🔐 Security Features</h2>
+
+            <ul>
+                <li>Password Hashing</li>
+                <li>Session Authentication</li>
+                <li>Input Validation</li>
+                <li>MySQL Database</li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
